@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Student Utility Web App</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #000;
+  --btn: #4CAF50;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+body.dark {
+  --bg: #121212;
+  --card: #1f1f1f;
+  --text: #fff;
+  --btn: #03DAC6;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(45deg, #4CAF50, #03DAC6);
+  color: white;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+nav {
+  background: rgba(44, 62, 80, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 15px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  background: linear-gradient(90deg, #2c3e50, #34495e);
+  padding: 18px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  transition: 0.3s ease;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background: #03DAC6;
+  color: #000;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card);
+  padding: 25px;
+  margin: 25px 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.4s ease;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 8px 5px 8px 0;
+  background: linear-gradient(45deg, #4CAF50, #03DAC6);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(3, 218, 198, 0.6);
+}
+
+body.dark .card {
+  box-shadow: 0 10px 25px rgba(0,255,255,0.1);
+}
+
+.badge { padding: 5px 10px; border-radius: 5px; color: white; }
+.Aplus { background: green; }
+.A { background: blue; }
+.B { background: orange; }
+.C { background: brown; }
+.Fail { background: red; }
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--card);
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+.toggle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@media(max-width:768px){
+  nav a{
+    display:block;
+    margin:8px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Smart Student Utility Web Application</h1>
+  <p>A Multi-Feature Web Tool Built Using HTML, CSS & JavaScript</p>
+</header>
+
+<nav>
+ <nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#grade">Grade Calculation</a>
+  <a href="#palindrome">Palindrome</a>
+  <a href="#number">Number Analyzer</a>
+  <a href="#login">Login</a>
+</nav>
+</nav>
+
+<div class="container">
+
+<div class="card" id="home">
+<h2>Home</h2>
+<p>
+The Smart Student Utility Web Application is a responsive and interactive multi-feature platform designed to assist students with essential academic tools in one place. This application integrates a Grade Calculator, Palindrome Checker, Number Analyzer, and a Login Validation system into a single user-friendly interface.
+</p>
+
+</div>
+
+<div class="card" id="about">
+<h2>About Me</h2>
+<p>
+Hello, I am <strong>Kuruba Keerthana</strong>, a dedicated web development student with strong interest in building structured, responsive, and interactive web applications. I enjoy transforming concepts into functional web solutions that provide meaningful user experience.
+</p>
+
+</div>
+
+<div class="toggle">
+<button onclick="toggleMode()">🌙 Toggle Dark / Light</button>
+</div>
+
+
+<div class="card" id="grade">
+<h2>Student Grade Calculator</h2>
+<input id="sname" placeholder="Student Name">
+<input class="mark" type="number" placeholder="Mathematics">
+<input class="mark" type="number" placeholder="Science">
+<input class="mark" type="number" placeholder="English">
+<input class="mark" type="number" placeholder="Computer Science">
+<input class="mark" type="number" placeholder="Social Studies">
+<button onclick="calculateGrade()">Calculate</button>
+<button onclick="resetGrade()">Reset</button>
+<p id="gradeResult"></p>
+</div>
+
+<div class="card" id="palindrome">
+<h2>Palindrome Checker</h2>
+<input id="palInput" placeholder="Enter word" oninput="countChar()">
+<p id="charCount"></p>
+<button onclick="checkPalindrome()">Check</button>
+<button onclick="resetPalindrome()">Reset</button>
+<p id="palResult"></p>
+</div>
+
+<div class="card" id="number">
+<h2>Number Analyzer</h2>
+<input id="numInput" type="number" placeholder="Enter number">
+<button onclick="analyzeNumber()">Analyze</button>
+<button onclick="resetNumber()">Reset</button>
+<p id="numResult"></p>
+<p id="loopResult"></p>
+</div>
+
+<div class="card" id="login">
+<h2>Login System</h2>
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<button onclick="resetLogin()">Reset</button>
+<p id="loginResult"></p>
+</div>
+
+</div>
+
+<footer>
+© 2026 Smart Student Utility Web App | Designed by Kuruba Keerthana
+</footer>
+
+<script>
+function toggleMode() {
+  document.body.classList.toggle("dark");
+}
+
+function calculateGrade() {
+  let name = document.getElementById("sname").value;
+  let marks = document.getElementsByClassName("mark");
+  let total = 0;
+  for (let i = 0; i < marks.length; i++) {
+    total += Number(marks[i].value);
+  }
+  let average = total / marks.length;
+  let grade = "";
+  let badgeClass = "";
+
+  if (average >= 90) { grade = "A+"; badgeClass = "Aplus"; }
+  else if (average >= 75) { grade = "A"; badgeClass = "A"; }
+  else if (average >= 60) { grade = "B"; badgeClass = "B"; }
+  else if (average >= 50) { grade = "C"; badgeClass = "C"; }
+  else { grade = "Fail"; badgeClass = "Fail"; }
+
+  document.getElementById("gradeResult").innerHTML =
+    "Name: " + name +
+    "<br>Total: " + total +
+    "<br>Average: " + average.toFixed(2) +
+    "<br>Grade: <span class='badge " + badgeClass + "'>" + grade + "</span>";
+}
+
+function resetGrade() {
+  document.getElementById("sname").value = "";
+  let marks = document.getElementsByClassName("mark");
+  for (let i = 0; i < marks.length; i++) marks[i].value = "";
+  document.getElementById("gradeResult").innerHTML = "";
+}
+
+function countChar() {
+  let text = document.getElementById("palInput").value;
+  document.getElementById("charCount").innerHTML =
+    "Character Count: " + text.length;
+}
+
+function checkPalindrome() {
+  let text = document.getElementById("palInput").value.toLowerCase();
+  let reversed = text.split("").reverse().join("");
+  document.getElementById("palResult").innerHTML =
+    (text === reversed && text !== "") ?
+    "It is a Palindrome ✅" :
+    "Not a Palindrome ❌";
+}
+
+function resetPalindrome() {
+  document.getElementById("palInput").value = "";
+  document.getElementById("palResult").innerHTML = "";
+  document.getElementById("charCount").innerHTML = "";
+}
+
+function analyzeNumber() {
+  let num = Number(document.getElementById("numInput").value);
+  let result = (num % 2 === 0) ? "Even Number<br>" : "Odd Number<br>";
+  if (num > 0) result += "Positive Number";
+  else if (num < 0) result += "Negative Number";
+  else result += "Zero";
+
+  document.getElementById("numResult").innerHTML = result;
+
+  let loopText = "";
+  for (let i = 1; i <= num; i++) loopText += i + " ";
+  document.getElementById("loopResult").innerHTML = loopText;
+}
+
+function resetNumber() {
+  document.getElementById("numInput").value = "";
+  document.getElementById("numResult").innerHTML = "";
+  document.getElementById("loopResult").innerHTML = "";
+}
+
+function login() {
+  let username = document.getElementById("user").value;
+  let password = document.getElementById("pass").value;
+  document.getElementById("loginResult").innerHTML =
+    (username === "admin" && password === "1234") ?
+    "Login Successful ✅" :
+    "Invalid Credentials ❌";
+}
+
+function resetLogin() {
+  document.getElementById("user").value = "";
+  document.getElementById("pass").value = "";
+  document.getElementById("loginResult").innerHTML = "";
+}
+</script>
+
+</body>
+</html>
